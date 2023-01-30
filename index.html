@@ -4,9 +4,59 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Calculator v1.0</title>
 </head>
 <body>
-  
+  <script>
+    // 'Q' for quitting
+    // 'C' for clearing
+    // 'K' for the continuing
+    let operand1 = parseInt(prompt("Enter the first operand"));
+    console.log(operand1);
+
+    var resume = true;
+    while (resume) {
+      let operator = prompt("Enter the operation");
+      console.log(operator);
+      let operand2 = parseInt(prompt("Enter the second operand"));
+      console.log(operand2);
+
+      switch (operator) {
+        case '+':
+          operand1 += operand2;
+          break;
+        case '-':
+          operand1 -= operand2;
+          break;
+        case '*':
+          operand1 *= operand2;
+          break;
+        case '/':
+          operand1 /= operand2;
+        default:
+          break;
+      }
+
+      console.log(operand1);
+
+      let action = prompt('Do you want to continue? ("K" to continue, "Q" to quit, "C" to clear');
+
+      if (action == 'C') {
+        console.log('Clearing...');
+        operand1 = parseInt(prompt('Enter the first operand.'));
+        console.log('C');
+      } else if (action == 'K') {
+        console.log('Resuming...');
+      } else if (action == 'Q') {
+        console.log('Quiting...');
+        resume = false;
+      } else {
+        console.log('Command DNE');
+      }
+    }
+
+    console.log('Done');
+
+  </script>
 </body>
 </html>
